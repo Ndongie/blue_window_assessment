@@ -1,5 +1,5 @@
 # blue_window_assessment
-<br> **********Configuration process*************
+<br>Configuration process
 <br>Clone the project from the repository
 <br>install vscode, node.js and setup playwright using the command npm init playwright
 <br>run the test using the commmand npx playwright test tests/registration.spec.js
