@@ -1,7 +1,7 @@
 /**
  * Contains all locators and methods to handle registration form tests
  */
-import { setTimeout } from "timers/promises";
+//import { setTimeout } from "timers/promises";
 
 class RegistrationPage{
     constructor(page){
@@ -24,9 +24,12 @@ class RegistrationPage{
 
     //Method dynamically select any gender on the registration form
     async selectGender(gender){
-        await this.page.locator("label[for='" +gender+ "male']").click();
+        gender === "" ?
+        console.log("Gender is not required")
+        :await this.page.locator("label[for='" +gender+ "']").click();
     }
 
+    /*
     //Method to check the dialog message
     checkDialogMessage(expectedMessage){
         this.page.on('dialog', async (dialog) => {
@@ -38,7 +41,7 @@ class RegistrationPage{
         });
 
         console.log("Dialog message is " +this.dialogMessage)
-    }
+    }*/
 
     //Method to fill and submit the registration form with data sent from a test
     async fillForm(data){
@@ -48,10 +51,24 @@ class RegistrationPage{
         await this.passwordField.fill(data.password);
         await this.confirmPasswordField.fill(data.confirmPassword);
 
+        //Fill the optional fields if and only if the data for that field is not null
+        this.selectGender(data.gender); //Select the gender
+        this.fillOptionalField(this.dateOfBirthField, data.dateOfBirth); //Fill the date of birth
+        this.fillOptionalField(this.phoneNumberField, data.phoneNumber); //Fill the phone number
+        this.fillOptionalField(this.addressField, data.address); //Fill the address
+        this.fillOptionalField(this.linkedinUrlField, data.linkedinUrl); //Fill the linkedin url
+        this.fillOptionalField(this.githubUrlField, data.githubUrl); //Fill the github url
+
         //Scroll to the buttom submit button and click on it
         await this.submitButton.scrollIntoViewIfNeeded();
         await this.submitButton.click();
-        await setTimeout(5000);
+    }
+    
+    //Method to dynamically fill any optional fields
+    async fillOptionalField(field, value){
+        value === "" ? 
+        console.log(`The ${field} is not required`)
+        :await field.fill(value);
     }
 }
 

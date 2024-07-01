@@ -1,20 +1,24 @@
 const {test, expect} = require('@playwright/test');
 const {BasePage} = require('../pages/BasePage');
-const { waitForDebugger } = require('inspector');
+//const { waitForDebugger } = require('inspector');
 const dataset = JSON.parse(JSON.stringify(require('../utils/registrationData.json')));
 
-test('Registration without a first name', async ({page}) => {
-    await page.goto('https://qa-assessment.pages.dev/');
-    const basePage = new BasePage(page);
-    const registrationPage = basePage.getRegistrationPage();
+for (let i = 0; i < 12; i++) {
 
-    await registrationPage.fillForm(dataset[0]);
+    test(`${dataset[i].name}`, async ({ page }) => {
 
-    page.on('dialog', async (dialog) => {
-        console.log(dialog.message());
-        console.log("In the action")
-        expect(dialog.message()).toContain("First name");
-        await dialog.accept();
+        await page.goto('https://qa-assessment.pages.dev/');
+        const basePage = new BasePage(page);
+        const registrationPage = basePage.getRegistrationPage();
+
+        //Event to check the dialog message and assert if test passed
+        page.on('dialog', async (dialog) => {
+            console.log(`Expected message: ${dataset[i].messsage}  actual message ${dialog.message()}`);
+            expect(dialog.message()).toContain(dataset[i].messsage);
+            await dialog.accept();
+        });
+
+        await registrationPage.fillForm(dataset[i]);
+
     });
-
-});
+};

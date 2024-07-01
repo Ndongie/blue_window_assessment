@@ -1,4 +1,20 @@
-[{
+[
+    {
+        "firstname":"",
+        "lastname":"",
+        "email":"",
+        "password":"",
+        "confirmPassword":"",
+        "gender":"",
+        "dateOfBirth":"",
+        "phoneNumber":"",
+        "address":"",
+        "linkedinUrl":"",
+        "githubUrl":"",
+        "name":"Registration with no mandatory field filled",
+        "messsage":"First name must be filled out"
+    },
+    {
     "firstname":"",
     "lastname":"Testone",
     "email":"test1@gmail.com",
@@ -9,7 +25,24 @@
     "phoneNumber":"",
     "address":"",
     "linkedinUrl":"",
-    "githubUrl":""
+    "githubUrl":"",
+    "name":"Registration without a firstname",
+    "messsage":"First name must be filled out"
+},
+{
+    "firstname":"test@#123",
+    "lastname":"Testone",
+    "email":"test1@gmail.com",
+    "password":"Qualit1",
+    "confirmPassword":"Quality1",
+    "gender":"",
+    "dateOfBirth":"",
+    "phoneNumber":"",
+    "address":"",
+    "linkedinUrl":"",
+    "githubUrl":"",
+    "name":"Registration with an invalid firstname",
+    "messsage":"First name must contain alphabetical characters only"
 },
 {
     "firstname":"Test",
@@ -22,10 +55,27 @@
     "phoneNumber":"",
     "address":"",
     "linkedinUrl":"",
-    "githubUrl":""
+    "githubUrl":"",
+    "name":"Registration without a lastname",
+    "messsage":"Last name must be filled out"
 },
 {
-    "firstname":"Test1",
+    "firstname":"Test",
+    "lastname":"Test#@52",
+    "email":"test1@gmail.com",
+    "password":"Qualit1",
+    "confirmPassword":"Quality1",
+    "gender":"",
+    "dateOfBirth":"",
+    "phoneNumber":"",
+    "address":"",
+    "linkedinUrl":"",
+    "githubUrl":"",
+    "name":"Registration with an invalid last name",
+    "messsage":"Last name must contain alphabetical characters only"
+},
+{
+    "firstname":"Test",
     "lastname":"Testone",
     "email":"test1@gmal",
     "password":"Qualit1",
@@ -35,11 +85,13 @@
     "phoneNumber":"",
     "address":"",
     "linkedinUrl":"",
-    "githubUrl":""
+    "githubUrl":"",
+    "name":"Registration with an invalid email",
+    "messsage":"Email must be a valid email address"
 },
 {
     "firstname":"Test",
-    "lastname":"Test1",
+    "lastname":"Testone",
     "email":"test1@gmail.com",
     "password":"Qualit1",
     "confirmPassword":"",
@@ -48,11 +100,13 @@
     "phoneNumber":"",
     "address":"",
     "linkedinUrl":"",
-    "githubUrl":""
+    "githubUrl":"",
+    "name":"Registration without a confirm password",
+    "messsage":"Confirm password must be filled out"
 },
 {
     "firstname":"Test",
-    "lastname":"Test1",
+    "lastname":"Testone",
     "email":"test1@gmail.com",
     "password":"",
     "confirmPassword":"Quality1",
@@ -61,24 +115,43 @@
     "phoneNumber":"",
     "address":"",
     "linkedinUrl":"",
-    "githubUrl":""
+    "githubUrl":"",
+    "name":"Registration without a password",
+    "messsage":"Passwords do not match"
 },
 {
     "firstname":"Test",
-    "lastname":"Test1",
+    "lastname":"Testone",
     "email":"test1@gmail.com",
-    "password":"Quality1",
-    "confirmPassword":"Quality875",
+    "password":"",
+    "confirmPassword":"",
     "gender":"",
     "dateOfBirth":"",
     "phoneNumber":"",
     "address":"",
     "linkedinUrl":"",
-    "githubUrl":""
+    "githubUrl":"",
+    "name":"Registration without a password and a confirm password",
+    "messsage":"Confirm password must be filled out"
 },
 {
     "firstname":"Test",
-    "lastname":"Test1",
+    "lastname":"Testone",
+    "email":"test1@gmail.com",
+    "password":"Quality1",
+    "confirmPassword":"Quality1123",
+    "gender":"",
+    "dateOfBirth":"",
+    "phoneNumber":"",
+    "address":"",
+    "linkedinUrl":"",
+    "githubUrl":"",
+    "name":"Registration with confirm password different from password",
+    "messsage":"Passwords do not match"
+},
+{
+    "firstname":"Test",
+    "lastname":"Testone",
     "email":"test1@gmail.com",
     "password":"Quality1",
     "confirmPassword":"Quality1",
@@ -87,11 +160,13 @@
     "phoneNumber":"",
     "address":"",
     "linkedinUrl":"",
-    "githubUrl":""
+    "githubUrl":"",
+    "name":"Registration with all mandatory fields filled",
+    "messsage":""
 },
 {
     "firstname":"Test",
-    "lastname":"Test1",
+    "lastname":"Testone",
     "email":"test1@gmail.com",
     "password":"Quality1",
     "confirmPassword":"Quality1",
@@ -100,7 +175,9 @@
     "phoneNumber":"",
     "address":"",
     "linkedinUrl":"https://www.linkedin.com/in/ndongie-awona-chavalei-439991161/",
-    "githubUrl":""
+    "githubUrl":"",
+    "name":"Registration with all mandatory fields  and linked url field filled",
+    "messsage":""
 }
 
 ]
