@@ -6,7 +6,7 @@ const url = 'https://qa-assessment.pages.dev/';
 
 for (let i = 0; i < 11; i++) {
 
-    test(`${dataset[i].name}`, async ({ page }) => {
+    test(`@Registration ${dataset[i].name}`, async ({ page }) => {
 
         await page.goto(url);
         const basePage = new BasePage(page);
@@ -24,7 +24,7 @@ for (let i = 0; i < 11; i++) {
     });
 };
 
-test(`${dataset1[0].name}`, async ({ page }) => {
+test(`@Registration ${dataset1[0].name}`, async ({ page }) => {
 
     await page.goto(url);
     const basePage = new BasePage(page);
