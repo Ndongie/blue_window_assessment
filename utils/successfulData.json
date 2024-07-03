@@ -1,0 +1,17 @@
+[
+    {
+        "firstname": "Test",
+        "lastname": "Testone",
+        "email": "test1@gmail.com",
+        "password": "Quality1",
+        "confirmPassword": "Quality1",
+        "gender": "",
+        "dateOfBirth": "",
+        "phoneNumber": "",
+        "address": "",
+        "linkedinUrl": "",
+        "githubUrl": "",
+        "name": "Registration with all mandatory fields filled",
+        "messsage": "anything"
+    }
+]

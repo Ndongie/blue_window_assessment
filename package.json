@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "all":"npx playwright test",
+    "chrome_web":"npx playwright test --project=chrome_web --grep=@Registration",
+    "chrome_mobile":"npx playwright test --project=chrome_moble --grep=@Registration",
+    "safari_web":"npx playwright test --project=safari_web --grep=@Registration",
+    "safari_mobile":"npx playwright test --project=safari_moble --grep=@Registration",
+    "firefox_web":"npx playwright test --project=firefox_web --grep=@Registration",
+    "firefox_mobile":"npx playwright test --project=firefox_moble --grep=@Registration"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

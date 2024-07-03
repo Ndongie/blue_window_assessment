@@ -14,22 +14,87 @@ const { defineConfig, devices } = require('@playwright/test');
  */
 module.exports = defineConfig({
   testDir: './tests',
+  retries:1,
   /*Maximum timeout project can run for */
-  timeout: 100*1000,
+  timeout: 30*1000,
   expect:{
-    timeout:10000
+    timeout:5000
   },
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    browserName: 'chromium',
-    headless: true,
-    screenshot:'on',
-    trace:'retain-on-failure'
-  }
+  projects:[
+    {
+      "name":"chrome_web",
+      use: {
+        browserName: 'chromium',
+        headless: false,
+        screenshot:'only-on-failure',
+        video:'retain-on-failure',
+        ignoreHTTPSErrors:true,
+        trace:'retain-on-failure',
+        //viewport:{width:720, height:720}
+      }
+    },
+    {
+      "name":"chrome_mobile",
+      use: {
+        browserName: 'chromium',
+        headless: false,
+        screenshot:'only-on-failure',
+        video:'retain-on-failure',
+        ignoreHTTPSErrors:true,
+        trace:'retain-on-failure',
+        ...devices['Pixel 5'],
+        //viewport:{width:720, height:720}
+      }
+    },
+    {
+      "name":"safari_web",
+      use: {
+        browserName: 'webkit',
+        headless: true,
+        screenshot:'only-on-failure',
+        video:'retain-on-failure',
+        ignoreHTTPSErrors:true,
+        trace:'retain-on-failure'
+      }
+    },
+    {
+      "name":"safari_mobile",
+      use: {
+        browserName: 'webkit',
+        headless: true,
+        screenshot:'only-on-failure',
+        video:'retain-on-failure',
+        ignoreHTTPSErrors:true,
+        trace:'retain-on-failure',
+        ...devices['iPhone 11']
+      }  
+    },
+    {
+      "name":"firefox_web",
+      use: {
+        browserName: 'firefox',
+        headless: false,
+        screenshot:'only-on-failure',
+        video:'retain-on-failure',
+        ignoreHTTPSErrors:true,
+        trace:'retain-on-failure',
+        //viewport:{width:720, height:720}
+      }
+    },
+    {
+      "name":"firefox_mobile",
+      use: {
+        browserName: 'firefox',
+        headless: false,
+        screenshot:'only-on-failure',
+        video:'retain-on-failure',
+        ignoreHTTPSErrors:true,
+        trace:'retain-on-failure',
+        ...devices['Pixel 5'],
+        //viewport:{width:720, height:720}
+      }
+    },
+  ],
 });
